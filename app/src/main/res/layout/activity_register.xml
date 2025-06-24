@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  Layout para la pantalla de registro de usuario.
+     Utiliza ConstraintLayout como raíz y un LinearLayout central para agrupar los campos del formulario.
+     Incluye campos de texto para nombre, apellido, documento, email y contraseña, y un botón de confirmación.
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/register_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@drawable/registro_usuario"> <!-- Fondo personalizado -->
+
+    <!--  Contenedor vertical para los campos del formulario -->
+    <LinearLayout
+        android:id="@+id/formContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintBottom_toTopOf="@id/btnRegistrarse"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!--  Campo: Nombre -->
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:background="?attr/colorSurface"
+            android:padding="8dp" />
+
+        <!--  Línea decorativa debajo del campo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gris_app"
+            android:layout_marginTop="-2dp" />
+
+        <!--  Campo: Apellido -->
+        <EditText
+            android:id="@+id/etApellido"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="Apellido"
+            android:background="?attr/colorSurface"
+            android:padding="8dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gris_app"
+            android:layout_marginTop="-2dp" />
+
+        <!--  Campo: Documento -->
+        <EditText
+            android:id="@+id/etDoc"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="N° documento"
+            android:background="?attr/colorSurface"
+            android:padding="8dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gris_app"
+            android:layout_marginTop="-2dp" />
+
+        <!--  Campo: Correo electrónico -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:background="?attr/colorSurface"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gris_app"
+            android:layout_marginTop="-2dp" />
+
+        <!--  Campo: Contraseña -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:background="?attr/colorSurface"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:layout_marginTop="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/gris_app"
+            android:layout_marginTop="-2dp" />
+    </LinearLayout>
+
+    <!-- Botón para enviar el formulario -->
+    <Button
+        android:id="@+id/btnRegistrarse"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:background="@drawable/rounded_button"
+        android:text="Registrarse"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

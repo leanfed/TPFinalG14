@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Layout de la barra inferior de navegación (BottomBar).
+Utiliza ConstraintLayout para alinear tres íconos (Calendario, Inicio y Perfil) en línea horizontal.
+Cada ícono es interactivo y se espera que dispare una navegación entre fragmentos.
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottom_bar"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_marginBottom="0dp"
+    android:background="@android:color/transparent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <!-- Ícono de calendario:
+         Se ubica completamente a la izquierda. Sirve para navegar a la sección de calendario.
+         Al hacer clic, se espera que abra el fragmento correspondiente (ej: CalendarioFragment).
+    -->
+    <ImageView
+        android:id="@+id/icon_calendar"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:src="@drawable/calendario_bar"
+        android:contentDescription="Calendario"
+        android:clickable="true"
+        android:focusable="true"
+        app:tint="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/icon_home" />
+
+    <!-- Ícono de inicio (Home):
+         Se coloca en el centro del ConstraintLayout mediante constraints entre los íconos vecinos.
+         Su función es redirigir al fragmento principal de la app.
+    -->
+    <ImageView
+        android:id="@+id/icon_home"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:src="@drawable/home_bar"
+        android:contentDescription="Inicio"
+        app:tint="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon_calendar"
+        app:layout_constraintEnd_toStartOf="@id/icon_profile"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <!-- Ícono de perfil:
+         Posicionado a la derecha. Su propósito es mostrar el fragmento de perfil del usuario.
+    -->
+    <ImageView
+        android:id="@+id/icon_profile"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:src="@drawable/perfil_bar"
+        android:contentDescription="Perfil"
+        app:tint="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon_home"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

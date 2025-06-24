@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Este XML define un componente reutilizable que representa el botón de menú tipo "hamburguesa" ☰.
+Se declara con <merge> en vez de <ConstraintLayout> para poder ser embebido sin crear un nodo extra en el árbol de vistas.
+
+Ideal para ser incluido mediante <include layout="@layout/menu_btn" /> en distintos layouts que necesiten el botón de menú.
+
+IMPORTANTE:
+Este archivo asume que será insertado dentro de un ConstraintLayout. Por eso usa constraints directamente.
+-->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- ☰ Botón de menú lateral contextual o superior derecho -->
+    <!-- Ícono estilo hamburguesa con fuente nativa -->
+    <TextView
+        android:id="@+id/btnMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="☰"
+    android:textSize="34sp"
+    android:textStyle="bold"
+    android:padding="12dp"
+    android:textColor="@color/azul_app"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginTop="100dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+</merge>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Layout para la pantalla de Login.
+     Este diseño muestra un botón de inicio de sesión y un texto para ir a la pantalla de registro.
+     Ambos elementos están centrados horizontalmente y anclados al borde inferior.
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/login_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login"
+    android:padding="16dp">                    <!-- Padding interno para evitar bordes pegados -->
+
+    <!-- 🔹 Texto "Registrarse":
+         Sirve como botón alternativo o llamada a acción secundaria.
+         Está centrado horizontalmente y anclado 30dp arriba del borde inferior.
+    -->
+<TextView
+android:id="@+id/tvRegister"
+android:layout_width="300dp"
+android:layout_height="wrap_content"
+android:textSize="18sp"
+android:clickable="true"
+android:focusable="true"
+android:padding="8dp"
+android:gravity="center"
+app:layout_constraintBottom_toBottomOf="parent"
+app:layout_constraintStart_toStartOf="parent"
+app:layout_constraintEnd_toEndOf="parent"
+android:layout_marginBottom="30dp" />
+
+    <!-- 🔹 Botón "Iniciar sesión":
+         Acción principal de la pantalla. Se ubica justo encima del texto "Registrarse"
+         con un margen inferior de 8dp. El fondo personalizado y el estilo refuerzan la jerarquía visual.
+    -->
+<Button
+android:id="@+id/btnLogin"
+android:layout_width="298dp"
+android:layout_height="60dp"
+android:text="Iniciar sesión"
+android:textColor="@color/gris_app"
+    android:textSize="20sp"
+    android:textStyle="bold"
+    android:background="@drawable/btn_login_background"
+    app:layout_constraintBottom_toTopOf="@id/tvRegister"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

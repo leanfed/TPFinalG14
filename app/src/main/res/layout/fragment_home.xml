@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Este archivo XML representa la estructura principal del `HomeFragment`, que es la pantalla de inicio tras iniciar sesión.
+Se usa un `DrawerLayout` como contenedor raíz, permitiendo futura implementación de un menú lateral (navigation drawer).
+El contenido principal se organiza dentro de un `ConstraintLayout`, donde se incluirán vistas como cards, textos y navegación inferior.
+-->
+
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment"> <!-- Ayuda a Android Studio a entender en qué clase se usará este layout -->
+
+    <!-- Contenedor visual principal del fragmento Home -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="19dp"
+        android:background="@drawable/home_bg">
+
+        <!-- 🔹 Botón de menú (PopupMenu) -->
+        <include
+            layout="@layout/menu_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 🔹 Nombre de usuario -->
+        <TextView
+            android:id="@+id/textUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Bienvenido"
+            android:textStyle="bold"
+            android:textColor="@color/azul_app"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.195" />
+
+        <!-- 🔹 Título de la materia (cambia cada 10 segundos) -->
+        <TextView
+            android:id="@+id/textMateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Materia en curso"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/azul_app"
+            app:layout_constraintTop_toBottomOf="@id/textUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="20dp"
+            android:translationY="30dp"/> <!-- 🔹 Espacio antes de las cards -->
+
+        <!--
+ Este fragmento contiene cuatro tarjetas (CardView):
+ 1. Calificaciones
+ 2. Vencimientos
+ 3. Presentismo
+ 4. Cronograma semanal
+
+ Cada tarjeta está alineada verticalmente con separación visual usando `translationY`.
+ Incluye títulos y subtítulos centrados, pensados para mostrar resumen de estado.
+ -->
+
+        <!-- 🔵 Card: Calificaciones -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_calificaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:translationY="110dp"
+            app:layout_constraintTop_toBottomOf="@id/textUserName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Contenedor vertical centrado -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <!-- Título de la sección -->
+                <TextView
+                    android:id="@+id/textTituloCalificaciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Calificaciones"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <!-- Tipo de evaluación más reciente -->
+                <TextView
+                    android:id="@+id/textEvaluacionCalificaciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Evaluación"
+                    android:textSize="16sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <!-- Nota obtenida -->
+                <TextView
+                    android:id="@+id/textNotaCalificaciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nota"
+                    android:textSize="16sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Vencimientos -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_vencimientos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:translationY="120dp"
+            app:layout_constraintTop_toBottomOf="@id/card_calificaciones"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Contenido en columna centrado -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textTituloVencimientos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Vencimientos"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <!-- Tipo de entrega próxima -->
+                <TextView
+                    android:id="@+id/textTrabajoVencimientos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trabajo o tarea"
+                    android:textSize="14sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <!-- Fecha límite -->
+                <TextView
+                    android:id="@+id/textFechaVencimientos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha de entrega"
+                    android:textSize="14sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Presentismo -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_presentismo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:translationY="130dp"
+            app:layout_constraintTop_toBottomOf="@id/card_vencimientos"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Porcentaje de asistencia -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textTituloPresentismo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Presentismo"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textPorcentajePresentismo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="71%"
+                    android:textSize="34sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Card: Cronograma semanal -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_cronograma"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="6dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:translationY="140dp"
+            app:layout_constraintTop_toBottomOf="@id/card_presentismo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Día y horario de próxima cursada -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textTituloCronograma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cronograma semanal"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textDiaCronograma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Día"
+                    android:textSize="14sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textHorarioCronograma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Horario"
+                    android:textSize="14sp"
+                    android:textColor="@color/azul_app"
+                    android:gravity="center"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--Inclusión de la BottomBar (barra de navegación inferior).
+Se reutiliza desde un archivo XML separado (`bottom_bar.xml`) mediante <include>,
+lo que permite mantener la navegación consistente en toda la app sin duplicar código.
+
+Ubicación:
+- Anclada al borde inferior del `ConstraintLayout` padre.
+- Abarca todo el ancho de la pantalla (`match_parent`).
+- Altura ajustable automáticamente según el contenido (`wrap_content`).
+--><include
+            layout="@layout/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

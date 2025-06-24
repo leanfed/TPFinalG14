@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Layout para un ítem del RecyclerView de calificaciones.
+Representa visualmente la información de una calificación individual:
+- Materia
+- Tipo de evaluación
+- Nota
+- Estado
+Usa CardView para aspecto de tarjeta elevada y ConstraintLayout para alinear el contenido de forma flexible y ordenada.
+-->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"> <!-- Elevación visual que separa la tarjeta del fondo -->
+
+    <!-- Contenedor interno que alinea los elementos verticalmente y centrados -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <!--  Nombre de la materia -->
+        <TextView
+            android:id="@+id/textMateria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Materia"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@android:color/black"
+            android:textAlignment="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Tipo de evaluación (TP, Parcial, Final...) -->
+        <TextView
+            android:id="@+id/textTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/textMateria"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Nota obtenida -->
+        <TextView
+            android:id="@+id/textNota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nota: 0"
+            android:textSize="14sp"
+            android:textColor="@android:color/holo_blue_dark"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/textTipo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Estado de la calificación  -->
+        <TextView
+            android:id="@+id/textEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:textColor="@color/green"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/textNota"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

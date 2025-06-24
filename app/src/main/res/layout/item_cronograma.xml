@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Layout de una tarjeta individual para el cronograma semanal.
+Contiene:
+- Nombre de la materia
+- Día de la cursada
+- Horario correspondiente
+Ideal para usar dentro de un RecyclerView que muestra la grilla de cursadas semanales.
+-->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">      <!-- Sombra para dar profundidad a la card -->
+
+    <!-- Contenedor vertical y centrado -->
+<LinearLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="12dp"
+android:orientation="vertical"
+android:gravity="center">
+
+<!-- Nombre de la materia -->
+<TextView
+    android:id="@+id/textNombreMateria"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Administración de bases de datos"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/black"
+    android:gravity="center"/>
+
+<!-- Día de la semana asignado a la cursada -->
+<TextView
+    android:id="@+id/textDias"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Día = Lunes"
+    android:textSize="16sp"
+    android:textColor="@android:color/black"/>
+
+<!-- Horario de cursada -->
+<TextView
+    android:id="@+id/textHorario"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Horario: 18.00 - 22.00 hs"
+    android:textSize="16sp"
+    android:textColor="@android:color/black"/>
+</LinearLayout>
+    </androidx.cardview.widget.CardView>

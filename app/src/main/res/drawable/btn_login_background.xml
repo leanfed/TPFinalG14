@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 🔹 Estado cuando el botón está presionado -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/gris_claro_app"/> <!-- 🔹 Color más claro al presionar -->
+            <corners android:radius="40dp"/> <!-- 🔹 Mantiene el radio de esquinas -->
+        </shape>
+    </item>
+
+    <!-- 🔹 Estado normal del botón -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/azul_app"/> <!-- 🔹 Color normal -->
+            <corners android:radius="40dp"/> <!-- 🔹 Mantiene el radio de esquinas -->
+        </shape>
+    </item>
+
+</selector>

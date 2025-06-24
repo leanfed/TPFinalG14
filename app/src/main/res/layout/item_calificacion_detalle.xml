@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Layout de una tarjeta (CardView) para mostrar una calificación individual (sin materia explícita).
+Ideal para vistas detalladas dentro de un RecyclerView que ya indica a qué materia pertenece cada entrada.
+Contiene: tipo de evaluación y nota obtenida, ambos centrados verticalmente y horizontalmente.
+-->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="18dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">        <!-- Sombra que eleva visualmente la tarjeta sobre el fondo -->
+
+    <!-- Contenedor flexible para alinear verticalmente los textos -->
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="10dp">
+
+<!-- Tipo de evaluación (ej: TP, Parcial, Final...) -->
+<TextView
+    android:id="@+id/textTipo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Tipo"
+    android:textSize="14sp"
+    android:textColor="@android:color/darker_gray"
+    android:textAlignment="center"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"/>
+
+<!-- Nota correspondiente a esa evaluación -->
+<TextView
+    android:id="@+id/textNota"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="Nota: 0"
+    android:textSize="14sp"
+    android:textColor="@android:color/holo_blue_dark"
+    android:textAlignment="center"
+    app:layout_constraintTop_toBottomOf="@id/textTipo"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>

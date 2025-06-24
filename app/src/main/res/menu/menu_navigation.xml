@@ -1,0 +1,44 @@
+<!--
+Menú de navegación principal de la aplicación.
+Definido en un archivo XML de tipo <menu>, este conjunto de items puede usarse en:
+- un Navigation Drawer
+- un PopupMenu
+- un NavigationView lateral
+Cada <item> representa una sección o acción disponible para el usuario.
+
+Cada item tiene un ID único (`@+id/...`) que se utiliza para detectar qué opción fue seleccionada en el listener del menú.
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Ir a la pantalla de Calificaciones -->
+    <item
+        android:id="@+id/nav_calificaciones"
+        android:title="Calificaciones" />
+
+    <!-- Ir a la sección de Vencimientos -->
+    <item
+        android:id="@+id/nav_vencimientos"
+        android:title="Vencimientos" />
+
+    <!-- Ir a la vista de Presentismo -->
+    <item
+        android:id="@+id/nav_presentismo"
+        android:title="Presentismo" />
+
+    <!-- Ir al cronograma semanal (agenda académica) -->
+    <item
+        android:id="@+id/nav_cronograma"
+        android:title="Cronograma semanal" />
+
+    <!-- Ver la sección "Acerca de la app" -->
+    <item
+        android:id="@+id/nav_acerca_de"
+        android:title="Acerca de" />
+
+    <!-- Cerrar la sesión activa -->
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Cerrar sesión" />
+
+</menu>

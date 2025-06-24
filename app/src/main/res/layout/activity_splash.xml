@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--  Layout utilizado por SplashActivity.
+     Presenta una pantalla de bienvenida con fondo y logo centrado, que aparece con retardo animado.
+     Usa FrameLayout como contenedor simple para colocar el logo centrado horizontal y verticalmente.
+-->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/splash_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_inicio"> <!-- Fondo gráfico para la splash screen -->
+
+    <!-- Imagen del logo de la app.
+         Inicialmente invisible (visibility="gone") y se muestra tras una pequeña demora en SplashActivity.
+         Está centrado dentro del FrameLayout gracias a layout_gravity="center".
+    -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_inicio"
+        android:layout_gravity="center"
+        android:visibility="gone" /> <!-- Oculto hasta que el handler lo revele -->
+
+</FrameLayout>

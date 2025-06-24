@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Layout de la pantalla de Calificaciones.
+Utiliza DrawerLayout como contenedor raíz (permite futuro soporte para navegación lateral),
+y ConstraintLayout como layout principal. Incluye encabezados, lista de calificaciones
+y barra inferior de navegación. Preparado para comportamiento de resumen/detalle dinámico.
+-->
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.calificaciones.CalificacionesFragment">
+
+    <!-- Contenedor principal del contenido visible -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/home_bg"
+    android:padding="19dp">
+
+    <!-- Título dinámico con el nombre de la materia (modo detalle).
+         Por defecto está oculto y se muestra solo al entrar al detalle de una materia.
+    -->
+    <TextView
+        android:id="@+id/textTituloMateria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/azul_app"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/recyclerViewCalificaciones"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="25dp"/>
+
+    <!-- ☰ Menú contextual (tres puntitos o hamburguesa) -->
+    <include
+        layout="@layout/menu_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- RecyclerView donde se listan las calificaciones.
+         Cambia entre resumen (última nota por materia) o detalle completo.
+    -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCalificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/bottom_bar_include"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.795" />
+
+    <!--  Encabezado estático (solo visible en vista de resumen) -->
+    <TextView
+        android:layout_width="303dp"
+        android:layout_height="60dp"
+        android:paddingBottom="6dp"
+        android:text="Últimas calificaciones"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.273" />
+
+    <!-- Footer: barra inferior con íconos (Calendario, Inicio, Perfil) -->
+    <include
+        android:id="@+id/bottom_bar_include"
+        layout="@layout/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.drawerlayout.widget.DrawerLayout>

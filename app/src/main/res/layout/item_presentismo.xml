@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Layout de una tarjeta para un ítem de presentismo.
+Esta CardView resume una asistencia individual de una materia determinada:
+- Muestra el nombre de la materia
+- La fecha del registro
+- El estado de asistencia (asistido o falta)
+- Y el porcentaje acumulado de presentismo
+
+Ideal para usar dentro de un RecyclerView al mostrar detalle de presentismo por materia.
+-->
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp">       <!-- Elevación para dar sensación de profundidad -->
+
+    <!-- Layout interno que organiza los textos en vertical, centrados -->
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="12dp">
+
+<!-- Nombre de la materia -->
+<TextView
+    android:id="@+id/textNombreMateria"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Materia"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/black"
+    android:gravity="center"
+    android:layout_marginBottom="6dp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<!-- Fecha del registro de asistencia -->
+<TextView
+    android:id="@+id/textFechaAsistencia"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Fecha: --/--"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/darker_gray"
+    android:gravity="center"
+    android:layout_marginTop="6dp"
+    app:layout_constraintTop_toBottomOf="@id/textNombreMateria"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<!-- Estado de asistencia (Asistido, Falta) -->
+<TextView
+    android:id="@+id/textEstadoAsistencia"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Estado: Asistido"
+    android:textSize="12sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/holo_green_dark"
+    android:gravity="center"
+    android:layout_marginTop="6dp"
+    app:layout_constraintTop_toBottomOf="@id/textFechaAsistencia"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+<!-- Porcentaje acumulado de presentismo -->
+<TextView
+    android:id="@+id/textPorcentajePresentismo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Presentismo: 70%"
+    android:textSize="14sp"
+    android:textStyle="bold"
+    android:textColor="@android:color/black"
+    android:gravity="center"
+    android:layout_marginTop="6dp"
+    app:layout_constraintTop_toBottomOf="@id/textEstadoAsistencia"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
