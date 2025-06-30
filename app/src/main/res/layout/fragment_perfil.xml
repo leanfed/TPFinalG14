@@ -15,6 +15,35 @@ Utiliza ConstraintLayout para posicionar cada campo de forma precisa, y reutiliz
     android:padding="19dp"
     android:background="@drawable/mi_perfil"> <!-- Fondo visual personalizado del perfil -->
 
+    <!-- Ícono superior centrado: 30dp arriba del título "MI PERFIL" -->
+    <ImageView
+        android:id="@+id/iconoPerfil"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/perfil_bar"
+    android:contentDescription="Ícono de perfil"
+    app:layout_constraintBottom_toTopOf="@id/textTituloPerfil"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Título superior: MI PERFIL -->
+    <TextView
+        android:id="@+id/textTituloPerfil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        android:text="Mi Perfil"
+
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@id/textNombre"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
     <!-- Campo: Nombre (posicionado lejos del borde superior con margen grande) -->
     <TextView
         android:id="@+id/textNombre"
