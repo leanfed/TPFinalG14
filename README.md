@@ -1,6 +1,6 @@
 Educat App
 
-Educat es una aplicación Android académica que organiza en un solo lugar los módulos clave para estudiantes: calendario, vencimientos, cronograma, calificaciones, presentismo y perfil. Su arquitectura modular basada en MVVM (Model–View–View-Model) garantiza escalabilidad, mantenibilidad y separación clara de responsabilidades.
+Educat es una aplicación Android académica que organiza en un solo lugar los módulos clave para estudiantes: calendario, vencimientos, cronograma, calificaciones, presentismo y perfil. Su arquitectura modular basada en MVVM (Model–View–ViewModel) garantiza escalabilidad, mantenibilidad y separación clara de responsabilidades.
 
 Funcionalidades principales
 - Login / Registro local con validación mediante Room Database
